@@ -79,6 +79,7 @@ class Program
 
     static void Main(string[] args)
     {
+
         Console.OutputEncoding = UTF8Encoding.UTF8;
         #region 3. Шифр Цезаря
         Console.WriteLine("What is the language of your message?");
@@ -107,7 +108,7 @@ class Program
         str = Console.ReadLine();
         string[] problemElements = str.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
         double result = Convert.ToDouble(problemElements[0]);
-        for (int i = 1; i < problemElements.Length; i+=2)
+        for (int i = 1; i < problemElements.Length; i += 2)
         {
             if (problemElements[i] == "+")
             {
@@ -168,7 +169,7 @@ class Program
         }
         for (int i = 0; i < words.Length; i++)
         {
-            if ( !(words[i].Contains(' ')) )
+            if (!(words[i].Contains(' ')))
             {
                 if (words[i] == banned)
                 {
@@ -184,30 +185,33 @@ class Program
         str = null;
         str = temp.ToString();
         Console.WriteLine("Censored text:" + str);
-        #endregion
         Console.WriteLine();
+        #endregion
         
         #region Демонстрация класса Date
-        //try
-        //{
-        //    Date date = new Date(2022, 7, 5);
-        //}
-        //catch(Exception e)
-        //{
-        //    Console.WriteLine(e.Message);
-        //}
-        //date.ShowDate();
-        //Console.WriteLine();
-        
-        //Console.Write("Changed date: ");
-        //date.ChangeDate(47);
-        //date.ShowDate();
-        //Console.WriteLine();
+        Date date = new Date();
+        try
+        {
+            date.Year = 2022;
+            date.Month = 5;
+            date.Day = 7;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+        }
+        date.ShowDate();
+        Console.WriteLine();
 
-        //Console.Write("Difference betweeen 12.11.2022 and ");
-        //date.ShowDate();
-        //Console.WriteLine(" = " + date.DifferenceBetween(2022, 11, 12));
-        //Console.WriteLine();
+        Console.Write("Changed date: ");
+        date.ChangeDate(47);
+        date.ShowDate();
+        Console.WriteLine();
+
+        Console.Write("Difference betweeen 12.11.2022 and ");
+        date.ShowDate();
+        Console.WriteLine(" = " + date.DifferenceBetween(2022, 11, 12) + " days");
+        Console.WriteLine();
         #endregion
 
         #region Демонстрация класса Employee

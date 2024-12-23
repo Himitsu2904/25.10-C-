@@ -62,6 +62,7 @@ namespace Class
                 day = value;
             }
         }
+
         public Date()
         {
             year = 1970;
@@ -109,6 +110,14 @@ namespace Class
         }
         public void ShowDate()
         {
+            try
+            {
+                this.Equals(null);
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             if (day < 10)
             {
                 Console.Write($"0{day}.");
